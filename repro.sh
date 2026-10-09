@@ -26,7 +26,7 @@ case ${1:-nvhpc} in
         CC_VERSION=$(gcc -dumpfullversion -dumpversion)
         ;;
     nvhpc)
-        (type -f module &> /dev/null) || { echo "error: missing 'module' command" ; exit 1 ; }
+        (command -v module &> /dev/null) || { echo "error: missing 'module' command" ; exit 1 ; }
         # install nvhpc
         NVHPC_LONGVERSION=20${NVHPC_VERSION%.*}_${NVHPC_VERSION/./}
         CUDA_VERSION=multi
